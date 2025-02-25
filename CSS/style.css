@@ -1,0 +1,416 @@
+/* Import Roboto Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #D1AB6E, rgb(51, 30, 21));
+  height: 100vh;
+  flex-direction: column;
+  color: #fff;
+}
+
+
+header {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  gap: 20%;
+
+  .logo{
+    img{
+      width: 40%;
+    }
+  }
+  
+  nav {
+    text-align: right;
+    font-family: "Roboto", sans-serif;
+    
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: space-around;
+      
+      li {
+        margin-left: 50px;
+        padding-top: 5px;
+        
+        a {
+          text-decoration: none;
+          color: #fff;
+          font-weight: bold;
+          font-size: 18px;
+          
+        }
+        a:hover {
+          color: #ddd;
+        }
+      }
+    }
+  }
+}
+
+
+#First {
+  background-image: url(../image/2.jpg);
+  height: 50vh;
+  background-size:cover;
+  background-position: bottom;
+  position: relative;
+  display: flex;
+  text-align: center;
+  padding: 150px;
+  z-index: 2;
+  color: #fff;
+  
+  .address{
+    font-family:'Roboto', sans-serif;
+    text-align: center;
+    margin: auto;
+    color: white;
+    z-index: 2;
+    text-shadow: 2px 2px 8px rgba(43, 42, 42, 0.8);
+    
+    h1{
+      font-size: 75px;
+      font-weight: 700;
+      width: 70%;
+      position: relative;
+      left: 15%;
+      span{
+        color: #331E15;
+      }
+    }
+
+    h2{
+      font-size: 30px;
+      font-weight: 600;
+      line-height: 28px;
+    }
+    
+    p{
+    font-size: 17px;
+      line-height: 35px;
+      width: 60%;
+      position: relative;
+      left: 20%;
+    }
+  }
+}
+
+
+#First::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgb(51, 30, 21), transparent);
+  z-index: 1;
+}
+
+#sections{
+  font-family: "Roboto", sans-serif;
+  overflow: hidden;
+
+  .section_FE,
+  .section_B,
+  .section_U,
+  .section_F{
+    padding-top: 80px;
+    display: flex;
+    width: 100%;
+    margin: auto;
+    position: relative;
+    left: 100px;
+    h2{
+      position: absolute;
+      color: #331E15;
+      font-size: 30px;
+      font-weight: 6=700;
+      line-height: 28px;
+      text-shadow: 2px 2px 8px rgba(43, 42, 42, 0.8);
+    }
+
+    p{
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 35px;
+      position: relative;
+      top: 50px;
+      width: 37%;
+      text-align: justify;
+      text-shadow: 2px 2px 8px rgba(43, 42, 42, 0.8);
+    }
+    img{
+      width: 30%;
+      height: 50%;
+      border-radius: 0px 30%;
+      position: relative;
+      left: 20%;
+      padding-top: 40px;
+    }
+  }
+  .section_B img{
+    width: 30%;
+    height: 50%;
+    padding-top: 60px;
+  }
+  .section_F img{
+    padding-top: 20px;
+  }
+}
+
+/* About us Section */
+#About-us{
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+  padding: 30px 0;
+  h1{
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 28px;
+    color: #331E15;
+    text-shadow: 2px 2px 8px rgba(43, 42, 42, 0.8);
+  }
+  p{
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+    text-shadow: 2px 2px 8px rgba(43, 42, 42, 0.8);
+  }
+}
+
+#Founders {
+  text-align: center;
+  margin: auto;
+  padding: 30px 0;
+}
+
+#Founders h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 35px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #2a1a12;
+  text-shadow: 2px 2px 8px rgba(43, 42, 42, 0.8);
+}
+
+#Founders .container {
+  display: flex; /* هنا بنستخدم flex علشان نخلي العناصر تترتب جمب بعض */
+  justify-content: space-around; /* ده بيوزع العناصر بشكل متساوي */
+  align-items: center; /* ده بيخلي العناصر تتبسط على المحور العمودي */
+}
+
+#Founders .container .rewan,
+#Founders .container .Mohammed,
+#Founders .container .Yahia {
+  width: 25%;
+  height: 85%;
+}
+
+#Founders .container .rewan img,
+#Founders .container .Mohammed img,
+#Founders .container .Yahia img {
+  width: 45%;
+  border: #D1AB6E 0.5px solid;
+  padding: 1px;
+  border-radius: 0 30%;
+}
+
+#Founders .container .rewan .Title,
+#Founders .container .Mohammed .Title,
+#Founders .container .Yahia .Title {
+  font-family: "Rubik", sans-serif;
+  width: 100%;
+}
+
+#Founders .container .rewan .Title h4,
+#Founders .container .Mohammed .Title h4,
+#Founders .container .Yahia .Title h4 {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 13px;
+}
+
+#Founders .container .rewan .Title p,
+#Founders .container .Mohammed .Title p,
+#Founders .container .Yahia .Title p {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+#Founders .container .rewan .Title .social_icon,
+#Founders .container .Mohammed .Title .social_icon,
+#Founders .container .Yahia .Title .social_icon {
+  margin-top: 10px; /* علشان نضيف مسافة فوق الأيقونات */
+}
+
+#Founders .container .rewan .Title .social_icon a,
+#Founders .container .Mohammed .Title .social_icon a,
+#Founders .container .Yahia .Title .social_icon a {
+  font-size: 20px;
+  text-decoration: none;
+  margin-right: 20px;
+  color: white;
+}
+
+#Founders .container .rewan .Title .social_icon a:hover,
+#Founders .container .Mohammed .Title .social_icon a:hover,
+#Founders .container .Yahia .Title .social_icon a:hover {
+  color: #dbb47490;
+}
+
+.social_icon::before{
+  content: "";
+  border: 2PX #D1AB6E solid;
+  margin-right: 10PX;
+}
+
+#sand_dunes {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1000;
+}
+
+#sand_dunes img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* إضافة التدرج فوق الصورة */
+#sand_dunes::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgb(51, 30, 21), transparent);
+  z-index: 1;
+}
+
+
+/* Footer Styling */
+footer {
+  background: #442d21;
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+  font-size: 18px;
+  position: relative;
+  z-index: 1000;
+  font-family: 'Roboto', sans-serif;
+}
+
+footer img{
+  width: 20%;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px 0;
+}
+
+/* Social Media Section */
+.social-links h3, .contact-form h3 {
+  margin-bottom: 10px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.social-links a {
+  color: white;
+  font-size: 24px;
+  margin: 0 10px;
+  transition: 0.3s;
+}
+
+.social-links a:hover {
+  color: #D1AB6E;
+}
+
+/* Branding Section */
+.branding {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Contact Form Styling */
+.contact-form {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #D1AB6E;
+  padding: 50px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid #D1AB6E;
+  border-radius: 5px;
+  font-size: 16px;
+  background: transparent;
+  color: white;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #ddd;
+}
+
+.contact-form button {
+  background: #D1AB6E;
+  color: black;
+  padding: 15px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background: #ffdd44;
+}
+
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+}
