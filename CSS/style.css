@@ -1,16 +1,39 @@
-/* Import Roboto Font */
+/* -------------------------------------------------
+   1) استيراد الخطوط وتعريف الأساسيات
+-------------------------------------------------- */
+/* استيراد خط Roboto */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+/* يمكن استخدام clamp() لجعل حجم الخط ديناميكي */
+:root {
+  --fs-base: clamp(1rem, 1.2vw, 1.5rem);  /* حجم الخط الأساسي */
+  --fs-h1: clamp(2rem, 5vw, 4rem);       /* حجم العناوين الرئيسية */
+  --fs-h2: clamp(1.5rem, 4vw, 3rem);     /* حجم العناوين الفرعية */
+  --fs-p: clamp(1rem, 2.5vw, 1.3rem);    /* حجم الفقرات */
+}
 
 body {
   margin: 0;
   padding: 0;
   background: linear-gradient(to right, #D1AB6E, rgb(51, 30, 21));
-  height: 100vh;
+  min-height: 100vh;
+  display: flex;
   flex-direction: column;
   color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-size: var(--fs-base);
 }
 
+/* الصور تتكيف مع حجم العنصر الأب */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
+/* -------------------------------------------------
+  2) تنسيق الـ Header والناف بار
+-------------------------------------------------- */
 header {
   width: 100%;
   height: 100px;
@@ -22,92 +45,105 @@ header {
   left: 0;
   z-index: 10;
   gap: 20%;
+}
 
-  .logo{
-    img{
-      width: 40%;
-    }
-  }
-  
-  nav {
-    text-align: right;
-    font-family: "Roboto", sans-serif;
-    
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: space-around;
-      
-      li {
-        margin-left: 50px;
-        padding-top: 5px;
-        
-        a {
-          text-decoration: none;
-          color: #fff;
-          font-weight: bold;
-          font-size: 18px;
-          
-        }
-        a:hover {
-          color: #ddd;
-        }
-      }
-    }
-  }
+header .logo img {
+  width: 40%;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #fff;
+  padding: 10px;
+}
+
+header nav {
+  text-align: right;
+  font-family: "Roboto", sans-serif;
+}
+
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;  
+  justify-content: space-around;
+}
+
+header nav ul li {
+  margin-left: 50px;
+  padding-top: 5px;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+header nav ul li a:hover {
+  color: #ddd;
 }
 
 
+/* -------------------------------------------------
+  3) القسم الأول (First Section)
+-------------------------------------------------- */
 #First {
   background-image: url(../image/2.jpg);
   height: 50vh;
-  background-size:cover;
+  background-size: cover;
   background-position: bottom;
   position: relative;
   display: flex;
   text-align: center;
-  padding: 150px;
+  padding: 150px 20px;
   z-index: 2;
   color: #fff;
-  
-  .address{
-    font-family:'Roboto', sans-serif;
-    text-align: center;
-    margin: auto;
-    color: white;
-    z-index: 2;
-    text-shadow: 2px 2px 8px rgba(43, 42, 42, 0.8);
-    
-    h1{
-      font-size: 75px;
-      font-weight: 700;
-      width: 70%;
-      position: relative;
-      left: 15%;
-      span{
-        color: #331E15;
-      }
-    }
-
-    h2{
-      font-size: 30px;
-      font-weight: 600;
-      line-height: 28px;
-    }
-    
-    p{
-    font-size: 17px;
-      line-height: 35px;
-      width: 60%;
-      position: relative;
-      left: 20%;
-    }
-  }
 }
 
+#First .address {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  margin: auto; /* مركزة عموديًا وأفقيًا داخل .address */
+  color: white;
+  z-index: 2;
+  text-shadow: 2px 2px 8px rgba(43, 42, 42, 0.8);
+}
 
+/* العنوان الرئيسي */
+#First .address h1 {
+
+  font-size: clamp(2rem, 7vw, 4.6875rem);
+  font-weight: 700;
+  max-width: 70%;
+  margin: 0 auto; /* يضمن أن النص في المنتصف */
+}
+
+#First .address h1 span {
+  color: #331E15;
+}
+
+/* العنوان الفرعي */
+#First .address h2 {
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 10px auto 0; /* مسافة بسيطة من الأعلى */
+}
+
+/* الفقرة */
+#First .address p {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  line-height: 1.8;
+  max-width: 60%;
+  margin: 20px auto 0 auto; /* تبقى في المنتصف */
+}
+
+/* الخلفية المتدرجة */
 #First::before {
   content: "";
   position: absolute;
@@ -119,80 +155,101 @@ header {
   z-index: 1;
 }
 
-#sections{
-  font-family: "Roboto", sans-serif;
+/* -------------------------------------------------
+   4) أقسام الشركة (#sections)
+-------------------------------------------------- */
+#sections {
   overflow: hidden;
-
-  .section_FE,
-  .section_B,
-  .section_U,
-  .section_F{
-    padding-top: 80px;
-    display: flex;
-    width: 100%;
-    margin: auto;
-    position: relative;
-    left: 100px;
-    h2{
-      position: absolute;
-      color: #331E15;
-      font-size: 30px;
-      font-weight: 6=700;
-      line-height: 28px;
-      text-shadow: 2px 2px 8px rgba(43, 42, 42, 0.8);
-    }
-
-    p{
-      font-size: 20px;
-      font-weight: 400;
-      line-height: 35px;
-      position: relative;
-      top: 50px;
-      width: 37%;
-      text-align: justify;
-      text-shadow: 2px 2px 8px rgba(43, 42, 42, 0.8);
-    }
-    img{
-      width: 30%;
-      height: 50%;
-      border-radius: 0px 30%;
-      position: relative;
-      left: 20%;
-      padding-top: 40px;
-    }
-  }
-  .section_B img{
-    width: 30%;
-    height: 50%;
-    padding-top: 60px;
-  }
-  .section_F img{
-    padding-top: 20px;
-  }
+  padding: 80px;
 }
 
-/* About us Section */
-#About-us{
-  font-family: "Roboto", sans-serif;
+#sections .section_FE,
+#sections .section_B,
+#sections .section_U,
+#sections .section_F {
+  padding-top: 80px;
+  display: flex;
+  width: 100%;
+  margin: auto;
+  position: relative;
+  left: 100px;
+}
+
+#sections .section_FE h2,
+#sections .section_B h2,
+#sections .section_U h2,
+#sections .section_F h2 {
+  position: absolute;
+  color: #331E15;
+  font-size: 30px; /* يمكن استبداله بـ var(--fs-h2) */
+  font-weight: 700;
+  line-height: 1.2;
+  text-shadow: 2px 2px 8px rgba(43, 42, 42, 0.8);
+}
+
+#sections .section_FE p,
+#sections .section_B p,
+#sections .section_U p,
+#sections .section_F p {
+  font-size: 20px; /* يمكن استبداله بـ var(--fs-p) */
+  font-weight: 400;
+  line-height: 1.8;
+  position: relative;
+  top: 50px;
+  width: 37%;
+  text-align: justify;
+  text-shadow: 2px 2px 8px rgba(43, 42, 42, 0.8);
+}
+
+#sections .section_FE img,
+#sections .section_B img,
+#sections .section_U img,
+#sections .section_F img {
+  width: 30%;
+  height: 50%;
+  border-radius: 0 30%;
+  position: relative;
+  left: 20%;
+  padding-top: 40px;
+}
+
+#sections .section_B img {
+  padding-top: 60px;
+}
+
+#sections .section_F img {
+  padding-top: 20px;
+}
+
+/* -------------------------------------------------
+   5) قسم "About Us"
+-------------------------------------------------- */
+#About-us {
   text-align: center;
   width: 50%;
   margin: auto;
   padding: 30px 0;
-  h1{
-    font-size: 50px;
-    font-weight: 700;
-    line-height: 28px;
-    color: #331E15;
-    text-shadow: 2px 2px 8px rgba(43, 42, 42, 0.8);
-  }
-  p{
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 28px;
-    text-shadow: 2px 2px 8px rgba(43, 42, 42, 0.8);
-  }
 }
 
+#About-us h1 {
+  font-size: 50px; /* يمكن استبداله بـ var(--fs-h1) */
+  font-weight: 700;
+  line-height: 1.2;
+  color: #331E15;
+  text-shadow: 2px 2px 8px rgba(43, 42, 42, 0.8);
+}
+
+#About-us p {
+  font-size: 20px; /* يمكن استبداله بـ var(--fs-p) */
+  font-weight: 500;
+  line-height: 1.6;
+  text-shadow: 2px 2px 8px rgba(43, 42, 42, 0.8);
+}
+
+/* -------------------------------------------------
+  6) قسم المؤسسين (#Founders)
+  (تم إرجاعه للتصميم الأصلي)
+-------------------------------------------------- */
 #Founders {
   text-align: center;
   margin: auto;
@@ -200,7 +257,6 @@ header {
 }
 
 #Founders h1 {
-  font-family: "Roboto", sans-serif;
   font-size: 35px;
   font-weight: 700;
   text-transform: uppercase;
@@ -209,9 +265,9 @@ header {
 }
 
 #Founders .container {
-  display: flex; /* هنا بنستخدم flex علشان نخلي العناصر تترتب جمب بعض */
-  justify-content: space-around; /* ده بيوزع العناصر بشكل متساوي */
-  align-items: center; /* ده بيخلي العناصر تتبسط على المحور العمودي */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 #Founders .container .rewan,
@@ -233,7 +289,6 @@ header {
 #Founders .container .rewan .Title,
 #Founders .container .Mohammed .Title,
 #Founders .container .Yahia .Title {
-  font-family: "Rubik", sans-serif;
   width: 100%;
 }
 
@@ -242,7 +297,7 @@ header {
 #Founders .container .Yahia .Title h4 {
   font-size: 14px;
   font-weight: 700;
-  line-height: 13px;
+  line-height: 1.2;
 }
 
 #Founders .container .rewan .Title p,
@@ -250,13 +305,13 @@ header {
 #Founders .container .Yahia .Title p {
   font-size: 11px;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 1.4;
 }
 
 #Founders .container .rewan .Title .social_icon,
 #Founders .container .Mohammed .Title .social_icon,
 #Founders .container .Yahia .Title .social_icon {
-  margin-top: 10px; /* علشان نضيف مسافة فوق الأيقونات */
+  margin-top: 10px;
 }
 
 #Founders .container .rewan .Title .social_icon a,
@@ -266,6 +321,84 @@ header {
   text-decoration: none;
   margin-right: 20px;
   color: white;
+  transition: color 0.3s;
+}
+
+#Founders .container .rewan .Title .social_icon a:hover,
+#Founders .container .Mohammed .Title .social_icon a:hover,
+#Founders .container .Yahia .Title .social_icon a:hover {
+  color: #dbb47490;
+}#Founders .container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start; /* أو center إذا أردت كل الكروت في منتصف الصفحة عموديًا */
+  gap: 20px; /* يمكنك إضافة مسافة بين الكروت إن أردت */
+}
+
+/* الكرت نفسه يكون بداخل عمودي */
+#Founders .container .rewan,
+#Founders .container .Mohammed,
+#Founders .container .Yahia {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* يضمن تمركز الصورة والنص بالمنتصف */
+  width: 25%;
+  height: auto; /* بدل 85% */
+  text-align: center; /* النص في المنتصف */
+}
+
+/* الصورة تكون في المنتصف */
+#Founders .container .rewan img,
+#Founders .container .Mohammed img,
+#Founders .container .Yahia img {
+  display: block;
+  margin: 0 auto;
+  width: 45%;
+  border: #D1AB6E 0.5px solid;
+  padding: 1px;
+  border-radius: 0 30%;
+}
+
+/* العنوان والنص */
+#Founders .container .rewan .Title,
+#Founders .container .Mohammed .Title,
+#Founders .container .Yahia .Title {
+  margin-top: 10px;
+}
+
+#Founders .container .rewan .Title h4,
+#Founders .container .Mohammed .Title h4,
+#Founders .container .Yahia .Title h4 {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 5px;
+}
+
+#Founders .container .rewan .Title p,
+#Founders .container .Mohammed .Title p,
+#Founders .container .Yahia .Title p {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.4;
+  margin-bottom: 5px;
+}
+
+/* أيقونات التواصل */
+#Founders .container .rewan .Title .social_icon,
+#Founders .container .Mohammed .Title .social_icon,
+#Founders .container .Yahia .Title .social_icon {
+  margin-top: 10px;
+}
+
+#Founders .container .rewan .Title .social_icon a,
+#Founders .container .Mohammed .Title .social_icon a,
+#Founders .container .Yahia .Title .social_icon a {
+  font-size: 20px;
+  text-decoration: none;
+  margin-right: 20px;
+  color: white;
+  transition: color 0.3s;
 }
 
 #Founders .container .rewan .Title .social_icon a:hover,
@@ -274,12 +407,15 @@ header {
   color: #dbb47490;
 }
 
-.social_icon::before{
+.social_icon::before {
   content: "";
-  border: 2PX #D1AB6E solid;
-  margin-right: 10PX;
+  border: 2px #D1AB6E solid;
+  margin-right: 10px;
 }
 
+/* -------------------------------------------------
+   7) قسم الرمال (Sand Dunes)
+-------------------------------------------------- */
 #sand_dunes {
   width: 100%;
   height: 300px;
@@ -294,7 +430,6 @@ header {
   object-fit: cover;
 }
 
-/* إضافة التدرج فوق الصورة */
 #sand_dunes::before {
   content: "";
   position: absolute;
@@ -306,8 +441,9 @@ header {
   z-index: 1;
 }
 
-
-/* Footer Styling */
+/* -------------------------------------------------
+   8) الفوتر (Footer)
+-------------------------------------------------- */
 footer {
   background: #442d21;
   color: white;
@@ -316,10 +452,9 @@ footer {
   font-size: 18px;
   position: relative;
   z-index: 1000;
-  font-family: 'Roboto', sans-serif;
 }
 
-footer img{
+footer img {
   width: 20%;
 }
 
@@ -333,8 +468,8 @@ footer img{
   padding: 20px 0;
 }
 
-/* Social Media Section */
-.social-links h3, .contact-form h3 {
+.social-links h3,
+.contact-form h3 {
   margin-bottom: 10px;
   font-size: 22px;
   font-weight: bold;
@@ -351,13 +486,11 @@ footer img{
   color: #D1AB6E;
 }
 
-/* Branding Section */
 .branding {
   font-size: 24px;
   font-weight: bold;
 }
 
-/* Contact Form Styling */
 .contact-form {
   background: rgba(255, 255, 255, 0.1);
   border: 2px solid #D1AB6E;
@@ -372,7 +505,8 @@ footer img{
   flex-direction: column;
 }
 
-.contact-form input, .contact-form textarea {
+.contact-form input,
+.contact-form textarea {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
@@ -404,7 +538,7 @@ footer img{
   background: #ffdd44;
 }
 
-
+/* تأثير العاصفة الرملية */
 canvas {
   position: fixed;
   top: 0;
@@ -413,4 +547,191 @@ canvas {
   height: 100%;
   pointer-events: none;
   z-index: 1000;
+}
+
+/* -------------------------------------------------
+   9) Media Queries متعددة لجعل الصفحة أكثر توافقًا
+-------------------------------------------------- */
+
+/* ========== شاشات أصغر من 992px ========== */
+@media (max-width: 992px) {
+  /* إظهار زر الهامبرجر وإخفاء القائمة الأفقية */
+  .menu-icon {
+    display: block;
+  }
+  
+  header nav ul {
+    display: none; /* إخفاء القائمة الافتراضية */
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 50%;
+    background: linear-gradient(to right, #d1ab6ea9, rgba(51, 30, 21, 0.467));
+    margin: 0;
+    padding: 20px 0;
+    gap: 10px;
+    border-radius: 15%;
+  }
+  
+  header nav ul.active {
+    display: flex; /* إظهار القائمة عند الضغط على زر الهامبرجر */
+  }
+  
+  header nav ul li {
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  /* يمكنك ضبط أحجام الخطوط هنا بشكل أدق */
+  body, 
+  #First .address h1, 
+  #First .address h2, 
+  #First .address p,
+  #sections .section_FE h2, 
+  #sections .section_B h2, 
+  #sections .section_U h2, 
+  #sections .section_F h2,
+  #sections .section_FE p, 
+  #sections .section_B p, 
+  #sections .section_U p, 
+  #sections .section_F p,
+  #About-us h1, 
+  #About-us p, 
+  #Founders h1 {
+    font-size: clamp(0.9rem, 2vw, 1.3rem);
+  }
+}
+
+/* ========== شاشات أصغر من 768px ========== */
+@media (max-width: 768px) {
+   /* إظهار زر الهامبرجر على الشاشات الصغيرة */
+   .menu-icon {
+    display: block;
+  }
+
+  /* إخفاء القائمة الأصلية افتراضياً */
+  header nav ul {
+    display: none; /* إخفاء القائمة الافتراضية */
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 50%;
+    background: linear-gradient(to right, #d1ab6ea9, rgba(51, 30, 21, 0.467));
+    margin: 0;
+    padding: 20px 0;
+    gap: 10px;
+    border-radius: 15%;
+    transition: all 0.3s ease;
+  }
+
+  /* عند إضافة الكلاس active من الجافاسكريبت */
+  header nav ul.active {
+    display: flex;                /* تظهر القائمة */
+    animation: slideDown 0.3s ease forwards;
+  }
+
+  /* حركة انزلاق لطيفة */
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* تنسيق الروابط داخل القائمة */
+  header nav ul li {
+    margin: 10px 0;
+    padding-top: 0; /* إلغاء الـ 5px الأساسي إذا أردت */
+  }
+
+  header nav ul li a {
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+
+  header nav ul li a:hover {
+    background: #444;
+    border-radius: 5px;
+  }
+
+  /* ترتيب السكاشن عموديًا */
+  #sections .section_FE,
+  #sections .section_B,
+  #sections .section_U,
+  #sections .section_F {
+    flex-direction: column;
+    align-items: center;
+    left: 0;
+    padding: 20px 0;
+  }
+
+  #sections .section_FE h2,
+  #sections .section_B h2,
+  #sections .section_U h2,
+  #sections .section_F h2 {
+    position: static;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  #sections .section_FE p,
+  #sections .section_B p,
+  #sections .section_U p,
+  #sections .section_F p {
+    position: static;
+    width: 90%;
+    text-align: center;
+    top: 0;
+  }
+
+  #sections .section_FE img,
+  #sections .section_B img,
+  #sections .section_U img,
+  #sections .section_F img {
+    position: static;
+    width: 80%;
+    height: auto;
+    left: 0;
+    padding-top: 20px;
+  }
+
+  /* الفوتر */
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* ========== شاشات أصغر من 480px ========== */
+@media (max-width: 480px) {
+  header nav ul li a {
+    font-size: 0.85rem;
+  }
+
+  /* يمكنك ضبط أحجام النصوص بشكل أكثر دقة للشاشات الصغيرة جدًا */
+  #First .address h1 {
+    font-size: 40px;
+  }
+
+  #First .address h2 {
+    font-size: 24px;
+  }
+
+  #About-us h1 {
+    font-size: 30px;
+  }
+
+  #About-us p {
+    font-size: 16px;
+  }
 }

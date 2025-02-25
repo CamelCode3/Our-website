@@ -69,3 +69,9 @@ function animate() {
 
 initParticles();
 animate();
+
+function toggleMenu() {
+  console.log('Menu icon clicked'); // إضافة تسجيل للتأكد من استدعاء الدالة
+  const navList = document.querySelector('nav ul');
+  navList.classList.toggle('active');
+  }
