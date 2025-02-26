@@ -1,16 +1,9 @@
 /* -------------------------------------------------
-   1) استيراد الخطوط وتعريف الأساسيات
+  1) استيراد الخطوط وتعريف الأساسيات
 -------------------------------------------------- */
 /* استيراد خط Roboto */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
-/* يمكن استخدام clamp() لجعل حجم الخط ديناميكي */
-:root {
-  --fs-base: clamp(1rem, 1.2vw, 1.5rem);  /* حجم الخط الأساسي */
-  --fs-h1: clamp(2rem, 5vw, 4rem);       /* حجم العناوين الرئيسية */
-  --fs-h2: clamp(1.5rem, 4vw, 3rem);     /* حجم العناوين الفرعية */
-  --fs-p: clamp(1rem, 2.5vw, 1.3rem);    /* حجم الفقرات */
-}
 
 body {
   margin: 0;
@@ -24,7 +17,6 @@ body {
   font-size: var(--fs-base);
 }
 
-/* الصور تتكيف مع حجم العنصر الأب */
 img {
   max-width: 100%;
   height: auto;
@@ -32,7 +24,7 @@ img {
 }
 
 /* -------------------------------------------------
-  2) تنسيق الـ Header والناف بار
+  2) Header
 -------------------------------------------------- */
 header {
   width: 100%;
@@ -90,7 +82,7 @@ header nav ul li a:hover {
 
 
 /* -------------------------------------------------
-  3) القسم الأول (First Section)
+  3)(First Section)
 -------------------------------------------------- */
 #First {
   background-image: url(../image/2.jpg);
@@ -108,19 +100,19 @@ header nav ul li a:hover {
 #First .address {
   font-family: 'Roboto', sans-serif;
   text-align: center;
-  margin: auto; /* مركزة عموديًا وأفقيًا داخل .address */
+  margin: auto;
   color: white;
   z-index: 2;
   text-shadow: 2px 2px 8px rgba(43, 42, 42, 0.8);
 }
 
-/* العنوان الرئيسي */
+
 #First .address h1 {
 
   font-size: clamp(1rem, 4vw, 4.6875rem);
   font-weight: 700;
   max-width: 70%;
-  margin: 0 auto; /* يضمن أن النص في المنتصف */
+  margin: 0 auto;
 }
 
 #First .address h1 span {
@@ -132,18 +124,17 @@ header nav ul li a:hover {
   font-size: clamp(.5rem, 2vw, 3rem);
   font-weight: 600;
   line-height: 1.2;
-  margin: 10px auto 0; /* مسافة بسيطة من الأعلى */
+  margin: 10px auto 0;
 }
 
-/* الفقرة */
+
 #First .address p {
   font-size: clamp(.5rem, 1vw, 1.5rem);
   line-height: 1.8;
   max-width: 60%;
-  margin: 20px auto 0 auto; /* تبقى في المنتصف */
+  margin: 20px auto 0 auto;
 }
 
-/* الخلفية المتدرجة */
 #First::before {
   content: "";
   position: absolute;
@@ -156,7 +147,7 @@ header nav ul li a:hover {
 }
 
 /* -------------------------------------------------
-  4) أقسام الشركة (#sections)
+  4)(#sections)
 -------------------------------------------------- */
 #sections {
   overflow: hidden;
@@ -182,7 +173,7 @@ header nav ul li a:hover {
 #sections .section_F h2 {
   position: absolute;
   color: #331E15;
-  font-size: 30px; /* يمكن استبداله بـ var(--fs-h2) */
+  font-size: 30px;
   font-weight: 700;
   line-height: 1.2;
   text-shadow: 2px 2px 8px rgba(43, 42, 42, 0.8);
@@ -192,7 +183,7 @@ header nav ul li a:hover {
 #sections .section_B p,
 #sections .section_U p,
 #sections .section_F p {
-  font-size: 20px; /* يمكن استبداله بـ var(--fs-p) */
+  font-size: 20px;
   font-weight: 400;
   line-height: 1.8;
   position: relative;
@@ -223,7 +214,7 @@ header nav ul li a:hover {
 }
 
 /* -------------------------------------------------
-   5) قسم "About Us"
+  5)"About Us"
 -------------------------------------------------- */
 #About-us {
   text-align: center;
@@ -234,7 +225,7 @@ header nav ul li a:hover {
 }
 
 #About-us h1 {
-  font-size: 50px; /* يمكن استبداله بـ var(--fs-h1) */
+  font-size: 50px;
   font-weight: 700;
   line-height: 1.2;
   color: #331E15;
@@ -242,7 +233,7 @@ header nav ul li a:hover {
 }
 
 #About-us p {
-  font-size: 20px; /* يمكن استبداله بـ var(--fs-p) */
+  font-size: 20px;
   font-weight: 500;
   line-height: 1.6;
   text-shadow: 2px 2px 8px rgba(43, 42, 42, 0.8);
@@ -250,164 +241,74 @@ header nav ul li a:hover {
 
 /* -------------------------------------------------
   6) قسم المؤسسين (#Founders)
-  (تم إرجاعه للتصميم الأصلي)
 -------------------------------------------------- */
 #Founders {
   text-align: center;
-  margin: auto;
-  padding: 30px 0;
-  z-index: 50;
+  padding: 50px 20px;
 }
 
 #Founders h1 {
-  font-size: 35px;
-  font-weight: 700;
-  text-transform: uppercase;
+  font-size: 2.5rem;
   color: #2a1a12;
-  text-shadow: 2px 2px 8px rgba(43, 42, 42, 0.8);
+  margin-bottom: 2rem;
 }
 
 #Founders .container {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
 }
 
-#Founders .container .rewan,
-#Founders .container .Mohammed,
-#Founders .container .Yahia {
-  width: 25%;
-  height: 85%;
+.founder-card {
+  width: 300px;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
-#Founders .container .rewan img,
-#Founders .container .Mohammed img,
-#Founders .container .Yahia img {
-  width: 45%;
-  border: #D1AB6E 0.5px solid;
-  padding: 1px;
-  border-radius: 0 30%;
+.founder-card:hover {
+  transform: translateY(-10px);
 }
 
-#Founders .container .rewan .Title,
-#Founders .container .Mohammed .Title,
-#Founders .container .Yahia .Title {
-  width: 100%;
+.founder-card img {
+  width: 150px;
+  height: 150px;
+  border-top-right-radius: 25%;
+  border-bottom-left-radius: 25%;
+  object-fit: cover;
+  border: 3px solid #D1AB6E;
+  margin-bottom: 15px;
+  margin-left: 85px;
 }
 
-#Founders .container .rewan .Title h4,
-#Founders .container .Mohammed .Title h4,
-#Founders .container .Yahia .Title h4 {
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1.2;
+.founder-card h4 {
+  font-size: 1.4rem;
+  color: #2a1a12;
+  margin-bottom: 10px;
 }
 
-#Founders .container .rewan .Title p,
-#Founders .container .Mohammed .Title p,
-#Founders .container .Yahia .Title p {
-  font-size: 11px;
-  font-weight: 400;
-  line-height: 1.4;
+.founder-card p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 15px;
 }
 
-#Founders .container .rewan .Title .social_icon,
-#Founders .container .Mohammed .Title .social_icon,
-#Founders .container .Yahia .Title .social_icon {
-  margin-top: 10px;
-}
-
-#Founders .container .rewan .Title .social_icon a,
-#Founders .container .Mohammed .Title .social_icon a,
-#Founders .container .Yahia .Title .social_icon a {
-  font-size: 20px;
-  text-decoration: none;
-  margin-right: 20px;
-  color: white;
-  transition: color 0.3s;
-}
-
-#Founders .container .rewan .Title .social_icon a:hover,
-#Founders .container .Mohammed .Title .social_icon a:hover,
-#Founders .container .Yahia .Title .social_icon a:hover {
-  color: #dbb47490;
-}#Founders .container {
+.social_icon {
   display: flex;
-  justify-content: space-around;
-  align-items: flex-start; /* أو center إذا أردت كل الكروت في منتصف الصفحة عموديًا */
-  gap: 20px; /* يمكنك إضافة مسافة بين الكروت إن أردت */
+  justify-content: center;
+  gap: 15px;
 }
 
-/* الكرت نفسه يكون بداخل عمودي */
-#Founders .container .rewan,
-#Founders .container .Mohammed,
-#Founders .container .Yahia {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* يضمن تمركز الصورة والنص بالمنتصف */
-  width: 25%;
-  height: auto; /* بدل 85% */
-  text-align: center; /* النص في المنتصف */
+.social_icon a {
+  color: #2a1a12;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
 }
 
-/* الصورة تكون في المنتصف */
-#Founders .container .rewan img,
-#Founders .container .Mohammed img,
-#Founders .container .Yahia img {
-  display: block;
-  margin: 0 auto;
-  width: 45%;
-  border: #D1AB6E 0.5px solid;
-  padding: 1px;
-  border-radius: 0 30%;
-}
-
-/* العنوان والنص */
-#Founders .container .rewan .Title,
-#Founders .container .Mohammed .Title,
-#Founders .container .Yahia .Title {
-  margin-top: 10px;
-}
-
-#Founders .container .rewan .Title h4,
-#Founders .container .Mohammed .Title h4,
-#Founders .container .Yahia .Title h4 {
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 5px;
-}
-
-#Founders .container .rewan .Title p,
-#Founders .container .Mohammed .Title p,
-#Founders .container .Yahia .Title p {
-  font-size: 11px;
-  font-weight: 400;
-  line-height: 1.4;
-  margin-bottom: 5px;
-}
-
-/* أيقونات التواصل */
-#Founders .container .rewan .Title .social_icon,
-#Founders .container .Mohammed .Title .social_icon,
-#Founders .container .Yahia .Title .social_icon {
-  margin-top: 10px;
-}
-
-#Founders .container .rewan .Title .social_icon a,
-#Founders .container .Mohammed .Title .social_icon a,
-#Founders .container .Yahia .Title .social_icon a {
-  font-size: 20px;
-  text-decoration: none;
-  margin-right: 20px;
-  color: white;
-  transition: color 0.3s;
-}
-
-#Founders .container .rewan .Title .social_icon a:hover,
-#Founders .container .Mohammed .Title .social_icon a:hover,
-#Founders .container .Yahia .Title .social_icon a:hover {
-  color: #dbb47490;
+.social_icon a:hover {
+  color: #D1AB6E;
 }
 
 .social_icon::before {
@@ -447,7 +348,6 @@ header nav ul li a:hover {
 /* -------------------------------------------------
   8) الفوتر (Footer)
 -------------------------------------------------- */
-/* Footer Styles */
 footer {
   background: #442d21;
   color: white;
@@ -675,7 +575,8 @@ canvas {
 
   /* قسم About us */
   #About-us {
-    padding: 2rem 1rem;
+    width: 80%;
+    padding: 2rem;
     text-align: center;
   }
 
@@ -694,39 +595,12 @@ canvas {
   }
 
   /* قسم المؤسسين */
-  #Founders {
-    padding: 2rem 1rem;
-  }
-
   #Founders h1 {
-    font-size: clamp(1.6rem, 2.8vw, 2rem);
-    text-align: center;
-    color: #2c1810;
-    margin-bottom: 2rem;
+    font-size: 2rem;
   }
 
   .founder-card {
-    text-align: center;
-    padding: 15px;
-    margin: 1rem 0;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  .founder-card img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 0 35% 0 35%;
-    margin: 0 auto 10px;
-    display: block;
-  }
-
-  .founder-card a {
-    display: block;
-    margin: 5px 0;
-    color: inherit;
-    text-decoration: none;
+    width: 45%;
   }
 
   .footer-container {
@@ -751,6 +625,17 @@ canvas {
   .branding-section {
     order: initial;
     margin-top: 40px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    border: 2px solid #D1AB6E;
+    border-radius: 5px;
+    font-size: 16px;
+    background: transparent;
+    color: white;
   }
 }
 
@@ -842,16 +727,14 @@ canvas {
   }
 
   .founder-card {
-    margin: 1rem 0;
-    padding: 1rem;
+    width: 100%;
+    max-width: 350px;
   }
 
   .founder-card img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 0 35% 0 35%;
-    margin: 0 auto 1rem;
+    width: 120px;
+    text-align: center;
+    height: 120px;
   }
 
   .contact-form {
@@ -865,6 +748,17 @@ canvas {
 
   footer img {
     width: 120px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    border: 2px solid #D1AB6E;
+    border-radius: 5px;
+    font-size: 16px;
+    background: transparent;
+    color: white;
   }
 }
 
@@ -906,11 +800,19 @@ canvas {
   }
 
   #Founders h1 {
-    font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+    font-size: 1.8rem;
   }
 
-  .founder-card {
-    padding: 0.8rem;
+  .founder-card h4 {
+    font-size: 1.2rem;
+  }
+
+  .founder-card p {
+    font-size: 0.9rem;
+  }
+
+  .social_icon a {
+    font-size: 1.2rem;
   }
 
   #sections .section_FE img,
@@ -919,28 +821,6 @@ canvas {
   #sections .section_F img {
     width: 90%;
     border-radius: 0 35% 0 35%;
-  }
-
-  .founder-card img {
-    width: 100px;
-    height: 100px;
-    border-radius: 0 35% 0 35%;
-  }
-
-  .founder-card h3 {
-    font-size: 1.1rem;
-  }
-
-  .founder-card p {
-    font-size: 0.9rem;
-  }
-
-  .social-icons {
-    gap: 15px;
-  }
-
-  .social-icons a {
-    font-size: 24px;
   }
 
   .contact-form input,
@@ -960,5 +840,16 @@ canvas {
 
   footer img {
     width: 100px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    border: 2px solid #D1AB6E;
+    border-radius: 5px;
+    font-size: 16px;
+    background: transparent;
+    color: white;
   }
 }
