@@ -1,7 +1,6 @@
 /* -------------------------------------------------
   1) استيراد الخطوط وتعريف الأساسيات
 -------------------------------------------------- */
-/* استيراد خط Roboto */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
 
@@ -14,7 +13,25 @@ body {
   flex-direction: column;
   color: #fff;
   font-family: 'Roboto', sans-serif;
-  font-size: var(--fs-base);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e1e; 
+  border-radius: 5px; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #D1AB6E, rgb(51, 30, 21));
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px rgba(43, 42, 42, 0.8);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #e5c289, rgb(25, 16, 13));
 }
 
 img {
@@ -60,7 +77,7 @@ header nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;  
+  display: flex;
   justify-content: space-around;
 }
 
@@ -108,8 +125,7 @@ header nav ul li a:hover {
 
 
 #First .address h1 {
-
-  font-size: clamp(1rem, 4vw, 4.6875rem);
+  font-size: clamp(5rem, 8vw, 6rem);
   font-weight: 700;
   max-width: 70%;
   margin: 0 auto;
@@ -119,7 +135,6 @@ header nav ul li a:hover {
   color: #331E15;
 }
 
-/* العنوان الفرعي */
 #First .address h2 {
   font-size: clamp(.5rem, 2vw, 3rem);
   font-weight: 600;
@@ -150,8 +165,9 @@ header nav ul li a:hover {
   4)(#sections)
 -------------------------------------------------- */
 #sections {
-  overflow: hidden;
-  padding: 80px;
+  /* overflow: hidden; */
+  width: 80%;
+  margin: auto;
   z-index: 50;
 }
 
@@ -161,10 +177,7 @@ header nav ul li a:hover {
 #sections .section_F {
   padding-top: 80px;
   display: flex;
-  width: 100%;
-  margin: auto;
-  position: relative;
-  left: 100px;
+  gap: 50px;
 }
 
 #sections .section_FE h2,
@@ -188,8 +201,7 @@ header nav ul li a:hover {
   line-height: 1.8;
   position: relative;
   top: 50px;
-  width: 37%;
-  text-align: justify;
+  width: 39%;
   text-shadow: 2px 2px 8px rgba(43, 42, 42, 0.8);
 }
 
@@ -197,7 +209,7 @@ header nav ul li a:hover {
 #sections .section_B img,
 #sections .section_U img,
 #sections .section_F img {
-  width: 30%;
+  width: 35%;
   height: 50%;
   border-radius: 0 30%;
   position: relative;
@@ -220,7 +232,7 @@ header nav ul li a:hover {
   text-align: center;
   width: 50%;
   margin: auto;
-  padding: 30px 0;
+  padding-top: 100px;
   z-index: 50;
 }
 
@@ -240,7 +252,7 @@ header nav ul li a:hover {
 }
 
 /* -------------------------------------------------
-  6) قسم المؤسسين (#Founders)
+  6) (#Founders)
 -------------------------------------------------- */
 #Founders {
   text-align: center;
@@ -264,7 +276,6 @@ header nav ul li a:hover {
   width: 300px;
   border-radius: 15px;
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
 
@@ -278,9 +289,9 @@ header nav ul li a:hover {
   border-top-right-radius: 25%;
   border-bottom-left-radius: 25%;
   object-fit: cover;
-  border: 3px solid #D1AB6E;
+  border: 1px solid #D1AB6E;
   margin-bottom: 15px;
-  margin-left: 85px;
+  margin-left: 110px;
 }
 
 .founder-card h4 {
@@ -291,7 +302,7 @@ header nav ul li a:hover {
 
 .founder-card p {
   font-size: 1rem;
-  color: #666;
+  color: #c0bbbb;
   margin-bottom: 15px;
 }
 
@@ -318,7 +329,7 @@ header nav ul li a:hover {
 }
 
 /* -------------------------------------------------
-   7) قسم الرمال (Sand Dunes)
+  7) (Sand Dunes)
 -------------------------------------------------- */
 #sand_dunes {
   width: 100%;
@@ -346,7 +357,7 @@ header nav ul li a:hover {
 }
 
 /* -------------------------------------------------
-  8) الفوتر (Footer)
+  8) (Footer)
 -------------------------------------------------- */
 footer {
   background: #442d21;
@@ -474,8 +485,6 @@ footer img {
   opacity: 0.8;
 }
 
-
-/* تأثير العاصفة الرملية */
 canvas {
   position: fixed;
   top: 0;
@@ -487,7 +496,7 @@ canvas {
 }
 
 /* -------------------------------------------------
-  9) Media Queries متعددة لجعل الصفحة أكثر توافقًا
+  9) Media Queries
 -------------------------------------------------- */
 
 @media (max-width: 992px) {
@@ -520,19 +529,26 @@ canvas {
   }
 
   /* تعديلات الخطوط */
-  body { 
-    font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  #First{
+    height: 25vh;
   }
-  
   #First .address h1 {
-    font-size: clamp(1.8rem, 3.5vw, 2.2rem);
+    font-size: clamp(2.2rem, 3vw, 2rem);
+  }
+
+  #First .address h1 span {
+    font-size: clamp(3rem, 3vw, 2rem);
   }
   
   #First .address h2 {
     font-size: clamp(1.3rem, 2.5vw, 1.8rem);
   }
   
-  /* تعديلات الأقسام */
+  /* تعديلات الأقسام */#sections {
+  overflow: hidden;
+  z-index: 50;
+}
+  
   #sections .section_FE,
   #sections .section_B,
   #sections .section_U,
@@ -684,6 +700,17 @@ canvas {
     padding: 10px 20px;
   }
 
+  #First{
+    height: 25vh;
+  }
+  #First .address h1 {
+    font-size: clamp(2.2rem, 3vw, 2rem);
+  }
+
+  #First .address h1 span {
+    font-size: clamp(3rem, 3vw, 2rem);
+  }
+
   #sections .section_FE,
   #sections .section_B,
   #sections .section_U,
@@ -767,8 +794,15 @@ canvas {
     font-size: clamp(0.85rem, 1.2vw, 0.95rem);
   }
 
+  #First{
+    height: 25vh;
+  }
   #First .address h1 {
-    font-size: clamp(1.5rem, 2.8vw, 1.8rem);
+    font-size: clamp(2.2rem, 3vw, 2rem);
+  }
+
+  #First .address h1 span {
+    font-size: clamp(3rem, 3vw, 2rem);
   }
 
   #First .address h2 {
